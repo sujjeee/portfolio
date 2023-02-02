@@ -1,11 +1,11 @@
-import { GraphQLClient, gql } from 'graphql-request';
+import { GraphQLClient } from 'graphql-request';
 
 const hygraph = new GraphQLClient(
     process.env.NEXT_PUBLIC_GQL
 );
 
 export const getProjects = async () => {
-    const { projects } = await hygraph.request(gql
+    const { projects } = await hygraph.request(
         `
         {
             projects {
