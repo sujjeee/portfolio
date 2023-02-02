@@ -7,15 +7,18 @@ import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 const people = [
     { name: 'All' },
     { name: 'Marketing' },
-    { name: 'Ecommerce' }
+    { name: 'Blog' }
 ]
 
-const Tab = () => {
+const Tab = ({ onTabClick }) => {
+    const handleChange = (value) => {
+        onTabClick(value);
+    };
     const [selected, setSelected] = useState(people[0])
+    // console.log('this is your selcted person', selected)
     return (
         <div className='max-w-screen-md px-4 md:px-8 mx-auto'>
             <div className="sm:hidden z-50">
-
                 <Listbox value={selected} onChange={setSelected}>
                     <div className="relative mt-1">
                         <Listbox.Button className="relative w-full cursor-default rounded-lg bg-gray-800 py-2 pl-3 pr-10 text-left shadow-md text-white sm:text-sm">
@@ -45,17 +48,10 @@ const Tab = () => {
                                     >
                                         {({ selected }) => (
                                             <>
-                                                <span
-                                                    className={`block truncate ${selected ? 'font-medium' : 'font-normal'
-                                                        }`}
-                                                >
+                                                <span onClick={() => handleChange(person.name)} className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
                                                     {person.name}
                                                 </span>
-                                                {selected ? (
-                                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
-                                                        {/* <CheckIcon className="h-5 w-5" aria-hidden="true" /> */}
-                                                    </span>
-                                                ) : null}
+
                                             </>
                                         )}
                                     </Listbox.Option>
@@ -68,13 +64,13 @@ const Tab = () => {
             </div>
             <ul className="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
                 <li className="w-full">
-                    <a href="#" className="inline-block rounded-l-lg w-full p-4  hover:text-white bg-gray-800 hover:bg-gray-700" aria-current="page">All</a>
+                    <button onClick={() => handleChange('All')} className="inline-block rounded-l-lg w-full p-4  hover:text-white bg-gray-800 hover:bg-gray-700" aria-current="page">All</button>
                 </li>
                 <li className="w-full">
-                    <a href="#" className="inline-block w-full p-4  hover:text-white bg-gray-800 hover:bg-gray-700">Marketing</a>
+                    <button onClick={() => handleChange('Marketing')} className="inline-block w-full p-4  hover:text-white bg-gray-800 hover:bg-gray-700">Marketing</button>
                 </li>
                 <li className="w-full">
-                    <a href="#" className="inline-block w-full p-4  hover:text-white bg-gray-800 hover:bg-gray-700 rounded-r-lg" >Ecommerce</a>
+                    <button onClick={() => handleChange('Blog')} className="inline-block w-full p-4  hover:text-white bg-gray-800 hover:bg-gray-700 rounded-r-lg" >Blog</button>
                 </li>
             </ul>
         </div>

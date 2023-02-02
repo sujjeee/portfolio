@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { IoIosArrowDown } from 'react-icons/io';
 const Hero = () => {
     return (
         <div>
@@ -15,6 +15,9 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='justify-center items-center flex animate-bounce -mt-7 '>
+                <IoIosArrowDown className='text-white text-xl ' />
             </div>
         </div>
     )

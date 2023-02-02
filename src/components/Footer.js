@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { FaPinterestP, FaFacebookF, FaTwitter, FaInstagram, FaGithub } from 'react-icons/fa';
+import { FaTwitter, FaInstagram, FaGithub, FaFacebookF } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -27,10 +27,22 @@ const Footer = () => {
                                 <li>
                                     <div className="flex flex-col justify-center ">
                                         <div className="flex justify-center items-center space-x-14 sm:space-x-7">
-                                            <FaFacebookF className='text-lg md:text-xl' />
-                                            <FaInstagram className='text-lg md:text-xl' />
-                                            <FaTwitter className='text-lg md:text-xl' />
-                                            <FaGithub className='text-lg md:text-xl' />
+                                            <Link target="_blank" href='https://facebook.com/sujjeee'>
+
+                                                <FaFacebookF className='text-lg md:text-xl' />
+                                            </Link>
+                                            <Link target="_blank" href='https://instagram.com/sujjeee'>
+
+                                                <FaInstagram className='text-lg md:text-xl' />
+                                            </Link>
+                                            <Link target="_blank" href='https://twitter.com/codebustar'>
+
+                                                <FaTwitter className='text-lg md:text-xl' />
+                                            </Link>
+                                            <Link target="_blank" href='https://github.com/sujjeee'>
+
+                                                <FaGithub className='text-lg md:text-xl' />
+                                            </Link>
 
                                         </div>
                                     </div>
