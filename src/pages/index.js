@@ -10,6 +10,10 @@ export async function getStaticProps() {
 
   return {
     props: { projects },
+    revalidate: 86400,
+    headers: {
+      'Cache-Control': 'public, max-age=86400',
+    },
   };
 
 }
