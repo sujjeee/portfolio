@@ -9,10 +9,12 @@ export async function getStaticProps() {
   const projects = await getProjects();
 
   return {
-    props: { projects },
-    revalidate: 86400,
-    headers: {
-      'Cache-Control': 'public, max-age=86400',
+    props: { 
+      projects,
+      revalidate: 86400,
+      headers: {
+        'Cache-Control': 'public, max-age=86400',
+      },
     },
   };
 
